@@ -13,3 +13,11 @@ A simple Kotlin command-line application that manages student report cards with 
 - Built using Kotlin and standard I/O
 
 ---
+
+# Compile the Main.kt file
+kotlinc Main.kt Student.kt Marks.kt ReportCard.kt Teacher.kt -include-runtime -d Main.jar
+
+# Run the Main.kt file after its compilation
+java -jar Main.jar
+
+---
