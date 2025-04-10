@@ -5,6 +5,7 @@ A simple Kotlin command-line application that manages student report cards with 
 
 # Features
 
+These .kt files use the concepts of data classes, functions, classes, constructors, while and for loops, collections: (mutableListOf() and mutableSetOf()), if-else blocks and when blocks
 - Add up to 10 students with marks in 5 subjects
 - Prevents duplicate roll numbers
 - Validates that marks are within 1–100
