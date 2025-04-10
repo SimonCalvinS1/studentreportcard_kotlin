@@ -38,7 +38,7 @@ The functionalities of this kotlin project include :
 ---
 
 # Compile the Main.kt file
-kotlinc Main.kt Student.kt Marks.kt ReportCard.kt Teacher.kt -include-runtime -d Main.jar
+kotlinc Main.kt Student.kt Marks.kt ReportCard.kt Teacher.kt Principal.kt -include-runtime -d Main.jar
 
 # Run the Main.kt file after its compilation
 java -jar Main.jar

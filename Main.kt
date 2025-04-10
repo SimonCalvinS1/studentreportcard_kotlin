@@ -1,5 +1,6 @@
 import java.util.Scanner
 fun main() {
+    val principal = Principal("admin", "admin123") //sample principal details
     val sc = Scanner(System.`in`)
     val teachers = mutableListOf<Teacher>() //teacher list
     println("Enter login details for 2 teachers:")
@@ -19,7 +20,7 @@ fun main() {
         num_ofStudents = sc.nextInt()
     }
     val stu_WithMarks = mutableListOf<Pair<Student, Marks>>() //list of student with marks
-    val usedRollNumbers = mutableSetOf<Int>() //set of already existing roll numbers
+    val usedRollNumbers = mutableSetOf<Int>() //set to store already existing roll numbers
     for(i in 1..num_ofStudents) {
         println("\nEnter details for Student $i : ")
         print("Enter student name : ")
@@ -59,8 +60,10 @@ fun main() {
     while(true) {
         println("\n----Student Report Card Manager----")
         println("1) Display report card using roll number")
-        println("2) Display all report cards (for teachers)")
-        println("3) Exit")
+        println("2) Display all report cards (teacher login required)")
+        println("3) Display all students (teacher login required)")
+        println("4) Display all teachers (admin/principal login required)")
+        println("5) Exit")
         print("\nEnter your choice : ")
         val choice = sc.nextInt()
         when (choice) {
@@ -68,7 +71,7 @@ fun main() {
                 print("Enter the roll number of the student : ")
                 val rollNumber = sc.nextInt()
                 val student = stu_WithMarks.find { it.first.rollNo == rollNumber } //finding in list
-                if (student != null) {
+                if(student != null) {
                     val reportCard = ReportCard(student.first, student.second)
                     reportCard.createReport()
                 }
@@ -91,6 +94,37 @@ fun main() {
                 else { println("Invalid login credentials, access denied") }
             }
             3 -> {
+                println("Message : Teacher login required")
+                sc.nextLine()
+                print("Username : ")
+                val username = sc.nextLine()
+                print("Password : ")
+                val password = sc.nextLine()
+                val isValidTeacher = teachers.any { it.login(username, password) }
+                if(isValidTeacher) {
+                    println("\nAll Students:")
+                    for(studentWithMarks in stu_WithMarks) {
+                        studentWithMarks.first.displayDetails()
+                    }
+                }
+                else { println("Invalid login credentials, access denied") }
+            }
+            4 -> {
+                println("Message : Principal login required")
+                sc.nextLine()
+                print("Username : ")
+                val username = sc.nextLine()
+                print("Password : ")
+                val password = sc.nextLine()
+                if(principal.login(username, password)) {
+                    println("\nAll Registered Teachers:")
+                    for ((index, teacher) in teachers.withIndex()) {
+                        println("Teacher ${index + 1} - Username: ${teacher.username}")
+                    }
+                }
+                else { println("Invalid principal login credentials, access denied") }
+            }            
+            5 -> {
                 println("Exiting")
                 break
             }
