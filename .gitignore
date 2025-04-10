@@ -1,0 +1,47 @@
+# Kotlin build output
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.log
+kotlinc/
+out/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+*.env
+
+# Backup files
+*.swp
+*.swo
+*~
+
+# Kotlin Script Cache
+.kts.cache/
+
+# Log files
+*.log
+
+# Other common
+node_modules/
