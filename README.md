@@ -33,6 +33,8 @@ The functionalities of this kotlin project include :
 - Validates that marks are within 1–100
 - View a single student's report card by roll number
 - Teacher login required to view all report cards
+- Teacher login required to view all students
+- Principal login required to view all teachers
 - Built using Kotlin and standard I/O
 
 ---
